@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Sakthipradeesh, an Artificial Intelligence and Machine Learning student at Government College of Technology, Coimbatore.">
+  <meta name="theme-color" content="#0b1120">
+  <title>Sakthipradeesh | AI &amp; ML Student Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #111827;
+      --card-light: #172033;
+      --border: #263247;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --primary: #60a5fa;
+      --secondary: #38bdf8;
+      --accent: #a78bfa;
+      --success: #4ade80;
+      --max-width: 1050px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(92%, var(--max-width)); margin: auto; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11, 17, 32, 0.92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      min-height: 70px; display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem;
+    }
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.3rem; font-weight: 700; color: white;
+      white-space: nowrap;
+    }
+    .logo span, .hero h1 span { color: var(--primary); }
+    .nav-links { display: flex; gap: 1.35rem; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .88rem; transition: color .25s; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--primary); }
+
+    .hero {
+      min-height: 590px; display: flex; align-items: center;
+      padding: 85px 0 70px;
+      background: radial-gradient(circle at 80% 20%, rgba(96,165,250,.14), transparent 30%);
+    }
+    .hero-content { max-width: 800px; }
+    .hello {
+      color: var(--primary); font-size: .95rem; font-weight: 700;
+      letter-spacing: .12em; margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.7rem, 7vw, 5rem);
+      line-height: 1.1; margin-bottom: 1.3rem;
+      overflow-wrap: anywhere;
+    }
+    .hero-role { font-size: 1.2rem; color: var(--muted); margin-bottom: 1.3rem; }
+    .hero-description { max-width: 680px; color: var(--muted); margin-bottom: 2rem; }
+    .buttons, .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: .75rem 1.3rem; border-radius: 8px;
+      font-weight: 600; font-size: .9rem; transition: .25s;
+    }
+    .btn-primary { background: var(--primary); color: #07101f; }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--secondary); }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+    section { padding: 76px 0; scroll-margin-top: 75px; }
+    .section-heading { margin-bottom: 2rem; }
+    .section-label {
+      color: var(--primary); font-size: .8rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; margin-bottom: .5rem;
+    }
+    .section-heading h2 { font-family: "Space Grotesk", sans-serif; font-size: 2rem; line-height: 1.25; }
+    .section-heading p, .about-text { color: var(--muted); margin-top: .65rem; max-width: 760px; }
+    .highlight { color: var(--text); font-weight: 600; }
+
+    .skills-grid, .projects, .learning-grid, .achievement-list {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem;
+    }
+    .skill-card, .project, .learning-card, .achievement, .contact-box {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    }
+    .skill-card { padding: 1.35rem; transition: transform .25s, border-color .25s; }
+    .skill-card:hover, .project:hover { transform: translateY(-4px); border-color: var(--primary); }
+    .skill-card h3, .learning-card h3 { font-size: 1rem; margin-bottom: .4rem; }
+    .skill-card p, .learning-card p { color: var(--muted); font-size: .88rem; }
+
+    .project { padding: 1.6rem; transition: transform .25s, border-color .25s; }
+    .project-number { color: var(--primary); font-size: .8rem; font-weight: 700; letter-spacing: .05em; }
+    .project h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.25rem; margin: .4rem 0; }
+    .project-tech { color: var(--accent); font-size: .82rem; margin-bottom: .7rem; }
+    .project p, .project ul { color: var(--muted); font-size: .9rem; }
+    .project ul { margin: .8rem 0 0 1.2rem; }
+    .project li { margin-bottom: .25rem; }
+
+    .timeline { border-left: 2px solid var(--border); padding-left: 1.5rem; }
+    .timeline-item { position: relative; margin-bottom: 1.6rem; }
+    .timeline-item::before {
+      content: ""; position: absolute; width: 10px; height: 10px;
+      border-radius: 50%; background: var(--primary); left: -1.9rem; top: 8px;
+    }
+    .timeline-item h3 { font-size: 1.05rem; }
+    .institution { color: var(--primary); font-size: .92rem; margin: .25rem 0; }
+    .timeline-item p { color: var(--muted); font-size: .9rem; }
+
+    .learning-card { padding: 1.35rem; }
+    .status {
+      display: inline-block; margin-top: .8rem; padding: .25rem .65rem;
+      border-radius: 20px; background: rgba(74,222,128,.1);
+      color: var(--success); font-size: .72rem; font-weight: 700;
+    }
+    .achievement-list { gap: .8rem; }
+    .achievement { padding: 1rem; color: var(--muted); font-size: .88rem; }
+    .achievement::before { content: "✓"; color: var(--success); font-weight: 700; margin-right: .5rem; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: .7rem; }
+    .tag {
+      padding: .5rem .85rem; border: 1px solid var(--border); border-radius: 30px;
+      background: var(--card); color: var(--muted); font-size: .82rem;
+    }
+    .contact-box { padding: 2rem; background: linear-gradient(135deg, var(--card), var(--card-light)); }
+    .contact-box p { color: var(--muted); margin-bottom: 1.4rem; max-width: 760px; }
+    .contact-link {
+      display: inline-block; padding: .7rem 1rem; border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); font-size: .88rem; transition: .25s;
+    }
+    .contact-link:hover { border-color: var(--primary); color: var(--primary); }
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--muted); font-size: .8rem; }
+
+    a:focus-visible { outline: 2px solid var(--secondary); outline-offset: 4px; }
+
+    @media (max-width: 760px) {
+      .nav-container { min-height: 64px; }
+      .nav-links { display: none; }
+      .hero { min-height: auto; padding: 78px 0 60px; }
+      section { padding: 58px 0; }
+      .skills-grid, .learning-grid, .achievement-list, .projects { grid-template-columns: 1fr; }
+      .hero h1 { font-size: clamp(2.6rem, 12vw, 3.7rem); }
+      .hero-role { font-size: 1.05rem; }
+      .section-heading h2 { font-size: 1.75rem; }
+      .contact-box { padding: 1.3rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="#home" class="logo" aria-label="Sakthipradeesh home">SAKTHI<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#learning">Learning</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hello">HELLO, I'M</div>
+        <h1>Sakthipradeesh <span>K.</span></h1>
+        <div class="hero-role">Artificial Intelligence &amp; Machine Learning Student</div>
+        <p class="hero-description">
+          I am a student at Government College of Technology, Coimbatore, building my foundation in
+          Python, C programming, data structures and web development. I enjoy learning by doing and
+          exploring how technology can solve practical problems.
+        </p>
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">View My Project</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">About Me</div>
+          <h2>Learning by building</h2>
+        </div>
+        <p class="about-text">
+          I'm <span class="highlight">Sakthipradeesh</span>, an Artificial Intelligence and Machine
+          Learning student at <span class="highlight">Government College of Technology, Coimbatore</span>.
+          I'm developing my programming fundamentals and practical skills through coursework and
+          hands-on projects. I am interested in Python, C, data structures, web technologies and
+          exploring real-world applications of AI and ML.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Technical Skills</div>
+          <h2>Skills I'm developing</h2>
+          <p>A snapshot of the programming and web technologies I work with in my learning journey.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Python</h3>
+            <p>Practicing programming fundamentals, functions, collections and problem-solving.</p>
+          </article>
+          <article class="skill-card">
+            <h3>C Programming</h3>
+            <p>Learning core programming concepts, arrays, pointers, functions and memory basics.</p>
+          </article>
+          <article class="skill-card">
+            <h3>Data Structures</h3>
+            <p>Studying data organization and algorithms, including stacks, queues, trees and sorting.</p>
+          </article>
+          <article class="skill-card">
+            <h3>HTML</h3>
+            <p>Structuring web pages with semantic elements and clear content organization.</p>
+          </article>
+          <article class="skill-card">
+            <h3>CSS</h3>
+            <p>Styling web pages with layouts, responsive design, colors and typography.</p>
+          </article>
+          <article class="skill-card">
+            <h3>AI &amp; Machine Learning</h3>
+            <p>Exploring foundational concepts and learning how intelligent systems are applied.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Projects</div>
+          <h2>My Project</h2>
+          <p>A hands-on electronics project using an IR sensor and Arduino.</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-number">PROJECT 01</div>
+            <h3>Arduino IR Tracking System</h3>
+            <div class="project-tech">Arduino • IR Sensor • Embedded Programming</div>
+            <p>
+              A beginner-friendly Arduino project that reads an infrared (IR) sensor and responds
+              when an object or target is detected. The sensor state can be monitored through the
+              Serial Monitor, and an LED can indicate detection.
+            </p>
+            <ul>
+              <li>Connected an IR sensor to an Arduino digital input.</li>
+              <li>Read sensor values using digital input.</li>
+              <li>Used conditional logic to identify a detection signal.</li>
+              <li>Displayed status messages in the Serial Monitor and used an LED indicator.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Education</div>
+          <h2>Academic Journey</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Artificial Intelligence and Machine Learning</h3>
+            <div class="institution">Government College of Technology (GCT), Coimbatore</div>
+            <p>Undergraduate student building foundations in programming, data structures and computing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="learning">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Learning Focus</div>
+          <h2>Growing my technical foundation</h2>
+          <p>Areas I am working on through coursework and practical exercises.</p>
+        </div>
+        <div class="learning-grid">
+          <article class="learning-card">
+            <h3>Programming Practice</h3>
+            <p>Improving Python and C fundamentals through small programs and step-by-step problem solving.</p>
+            <span class="status">IN PROGRESS</span>
+          </article>
+          <article class="learning-card">
+            <h3>Data Structures &amp; Web Basics</h3>
+            <p>Building understanding of common data structures and creating pages with HTML and CSS.</p>
+            <span class="status">IN PROGRESS</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Interests</div>
+          <h2>Areas I'm exploring</h2>
+        </div>
+        <div class="tags">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Python</span>
+          <span class="tag">C Programming</span>
+          <span class="tag">Data Structures</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Arduino Projects</span>
+          <span class="tag">Problem Solving</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Contact</div>
+          <h2>Let's connect</h2>
+        </div>
+        <div class="contact-box">
+          <p>
+            I'm interested in learning, building practical projects and connecting with others who
+            enjoy programming and technology. Contact details can be added here when you are ready.
+          </p>
+          <div class="contact-links">
+            <a class="contact-link" href="#home">Back to top ↑</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year">2026</span> Sakthipradeesh. Built with HTML and CSS.</p>
+    </div>
+  </footer>
+</body>
+</html>
